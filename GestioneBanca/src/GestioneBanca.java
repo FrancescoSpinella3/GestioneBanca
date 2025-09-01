@@ -24,7 +24,8 @@ public class GestioneBanca {
                     comando = s.nextInt();
                     s.nextLine();
                     break;
-                } catch (InputMismatchException e){
+                }
+                catch (InputMismatchException e){
                     System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                     System.out.println("⚠️ Scelta utente non valida");
                     System.out.println("------------------------\n");
@@ -53,7 +54,8 @@ public class GestioneBanca {
                             importo = s.nextDouble();
                             s.nextLine();
                             break;
-                        } catch (InputMismatchException e){
+                        }
+                        catch (InputMismatchException e){
                             System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                             System.out.println("⚠️ Input utente non valido");
                             System.out.println("------------------------\n");
@@ -75,7 +77,8 @@ public class GestioneBanca {
                             importo = s.nextDouble();
                             s.nextLine();
                             break;
-                        } catch (InputMismatchException e){
+                        }
+                        catch (InputMismatchException e){
                             System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                             System.out.println("⚠️ Input utente non valido");
                             System.out.println("------------------------\n");
@@ -94,7 +97,8 @@ public class GestioneBanca {
                             numeroConto = s.nextInt();
                             s.nextLine();
                             break;
-                        }catch (InputMismatchException e){
+                        }
+                        catch (InputMismatchException e){
                             System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                             System.out.println("⚠️ Input utente non valido");
                             System.out.println("------------------------\n");
@@ -113,7 +117,8 @@ public class GestioneBanca {
                             numeroConto = s.nextInt();
                             s.nextLine();
                             break;
-                        }catch (InputMismatchException e){
+                        }
+                        catch (InputMismatchException e){
                             System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                             System.out.println("⚠️ Input utente non valido");
                             System.out.println("------------------------\n");
