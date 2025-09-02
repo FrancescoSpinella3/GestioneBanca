@@ -23,7 +23,7 @@ public class Banca{
     public void efftuaDeposito(int numeroConto, double importo){
         Conto conto = conti.get(numeroConto);
         if (conto != null){
-            conto.deposita(importo);
+            conto.deposita(importo, true);
         } else {
             System.out.println("⚠️ Errore: Il conto associato al numero conto (" + numeroConto + ") non è stato trovato o non esiste");
         }
@@ -33,7 +33,7 @@ public class Banca{
     public void effettuaPrelievo(int numeroConto, double importo){
         Conto conto = conti.get(numeroConto);
         if (conto != null){
-            conto.preleva(importo);
+            conto.preleva(importo, true);
         } else {
             System.out.println("⚠️ Errore: Il conto associato al numero conto (" + numeroConto + ") non è stato trovato o non esiste");
         }
@@ -58,5 +58,39 @@ public class Banca{
         } else {
             System.out.println("⚠️ Errore: Il conto associato al numero conto (" + numeroConto + ") non è stato trovato o non esiste");
         }
+    }
+
+    // Metodo effettua pagamanto
+    public void effettuaPagamento(int numeroContoPagante, int numeroContoRicevente, double importo){
+        Conto contoPagante = conti.get(numeroContoPagante);
+        Conto contoRicevente = conti.get(numeroContoRicevente);
+
+        if (contoPagante == null){
+            System.out.println("⚠️ Errore: Il conto (" + contoPagante + ") non è stato trovato o non esiste");
+            return;
+        }
+        if (contoRicevente == null){
+            System.out.println("⚠️ Errore: Il conto (" + contoRicevente + ") non è stato trovato o non esiste");
+            return;
+        }
+        if (contoPagante.getSaldo() < importo){
+            System.out.println("⚠️ Errore: impossibile effettuare il pagamento, saldo insufficiente");
+            return;
+        }
+
+        contoPagante.preleva(importo, false);
+        contoRicevente.deposita(importo, false);
+        System.out.println("✅ Pagamento di € " + importo + " verso il conto (" + contoRicevente.getNumeroConto() + ") avvenuto con successo");
+    }
+
+    public void accedi(int numeroConto){
+        Conto conto = conti.get(numeroConto);
+        String intestatario = conto.getIntestatario();
+        if (conto == null){
+            System.out.println("⚠️ Errore: Il conto associato al numero conto (" + numeroConto + ") non è stato trovato o non esiste");
+            return;
+        }
+        System.out.println("✅ Accesso confermato");
+        System.out.println("Benvenuto " + intestatario);
     }
 }
