@@ -83,14 +83,16 @@ public class Banca{
         System.out.println("✅ Pagamento di € " + importo + " verso il conto (" + contoRicevente.getNumeroConto() + ") avvenuto con successo");
     }
 
-    public void accedi(int numeroConto){
+    // Metodo per accedere al  conto
+    public boolean accedi(int numeroConto){
         Conto conto = conti.get(numeroConto);
-        String intestatario = conto.getIntestatario();
         if (conto == null){
             System.out.println("⚠️ Errore: Il conto associato al numero conto (" + numeroConto + ") non è stato trovato o non esiste");
-            return;
+            return false;
         }
+        String intestatario = conto.getIntestatario();
         System.out.println("✅ Accesso confermato");
         System.out.println("Benvenuto " + intestatario);
+        return true;
     }
 }
