@@ -7,25 +7,28 @@ public class GestioneBanca {
 
         Scanner s = new Scanner(System.in);
         while (true){
+            // Menu iniziale
             System.out.println("\n------------------ BANCA ------------------");
             System.out.println("1. Accedi al tuo conto");
             System.out.println("2. Apri conto");
             System.out.println("3. Chiudi applicazione");
             System.out.println("-------------------------------------------");
 
-            int comando = 0;
+            int comando = 0; // Comando scelto dall'utente
+            // Finchè non si inserisce un input valido viene richiesto il comando
             while (true){
                 try {
                     System.out.print("Inserisci comando: ");
                     comando = s.nextInt();
-                    s.nextLine();
-                    break;
+                    s.nextLine(); // pulisco il buffer
+                    break; // Esco dal ciclo se l'input è valdo
                 }
+                // Manda a schermo un errore se la scelta dell'utente non è valida
                 catch (InputMismatchException e){
                     System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                     System.out.println("⚠️ Scelta utente non valida");
                     System.out.println("------------------------\n");
-                    s.nextLine();
+                    s.nextLine(); // Scarto l'input sbaglito
                 }
             }
 
@@ -33,15 +36,17 @@ public class GestioneBanca {
                 case 1: // Accedi
                     System.out.println("\n--------------- ACCEDI AL TUO CONTO ----------------");
                     int numeroConto = 0;
-                    accountMenu:
+                    accountMenu: // Etichetta per il ciclo del menu conto
                     while (true){
                         try {
                             System.out.print("Il tuo numero conto: ");
                             numeroConto = s.nextInt();
                             s.nextLine();
+                            // Se il conto non viene trovato esce da ciclo e torna al menu
                             if (!banca.accedi(numeroConto)){
                                 break;
                             }
+                            // Altrimenti mostra il menu del conto
                             while (true){
                                 System.out.println("\n------------------ MENU ------------------");
                                 System.out.println("1. Deposita\t\t\t\t\t5. Informazioni conto");
@@ -110,7 +115,6 @@ public class GestioneBanca {
 
                                     case 3: // Effettua pagamento
                                         System.out.println("\n---------- EFFETTUA UN PAGAMENTO ----------");
-                                        int numeroContoPagante = 0;
                                         int numeroContoRicevente = 0;
                                         importo = 0.0;
                                         while (true){
@@ -160,11 +164,11 @@ public class GestioneBanca {
                                             }
                                         }
                                         banca.eliminaConto(numeroConto);
-                                        break accountMenu;
+                                        break accountMenu; // Esce dal ciclo del menu conto e torna al menu di accesso
 
                                     case 7: // Torna al menu di accesso
                                         break accountMenu;
-
+                                    // Messaggio di default se si inserisce un input non valido
                                     default:
                                         System.out.println("⚠️ Comando utente non valido");
                                 }
@@ -174,21 +178,21 @@ public class GestioneBanca {
                             System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
                             System.out.println("⚠️ Errore: Input utente non valido");
                             System.out.println("------------------------\n");
-                            s.nextLine();
+                            s.nextLine(); // Scarto l'input sbaglito
                         }
                     }
-                    break;
+                    break; // Esce dal ciclo della sezione di login
 
                 case 2: // Apri conto
                     System.out.println("\n--------------- APRI CONTO ----------------");
                     System.out.print("Nome: ");
                     String intestatario = s.nextLine();
-                    banca.creaConto(intestatario);
+                    banca.creaConto(intestatario); // Il conto viene creato e addiunto alla banca
                     break;
 
                 case 3: // Chiudi applicazione
                     System.out.println("Chiusura dell'applicazione...");
-                    return;
+                    return; // Esce dal main e chiude l'applicazione
 
                 default:
                     System.out.println("⚠️ Comando utente non valido");
