@@ -9,25 +9,31 @@ public class Conto implements Transazioni{
         this.saldo = 0.0;
     }
 
+    // Metodo getter dell'intestatario
     public String getIntestatario(){
         return intestatario;
     }
 
+    // Metodo getter del numero conto
     public int getNumeroConto(){
         return numeroConto;
     }
 
+    // Metodo getter del saldo
     public double getSaldo(){
         return saldo;
     }
 
+    // Metodo deposita
     @Override
     public void deposita(double importo, boolean mostraMessaggio) {
+        // Manda a schermo l'errore se l'importo è negativo
         if (importo < 0){
             if (mostraMessaggio)
                 System.out.println("⚠️ Errore: L'importo deve essere positivo.");
         } else {
-            this.saldo += importo;
+            this.saldo += importo; // Aggiungo l'importo al saldo
+            // Se mostraMessaggio è uguale true, manda a schermo il messaggio
             if (mostraMessaggio) {
                 System.out.println("✅ Deposito avvenuto con successo. Importo: € " + importo);
                 System.out.println("Il tuo saldo aggiornato è di: € " + saldo);
@@ -35,8 +41,10 @@ public class Conto implements Transazioni{
         }
     }
 
+    // Metodo preleva
     @Override
     public void preleva(double importo, boolean mostraMessaggio) {
+        // Manda a schermo l'errore se l'importo è negativo
         if (importo < 0){
             if (mostraMessaggio)
                 System.out.println("⚠️ Errore: L'importo deve essere positivo.");
@@ -44,7 +52,8 @@ public class Conto implements Transazioni{
         else if (saldo < importo){
             System.out.println("⚠️ Errore: impossibile prelevare € " + importo + ". Saldo insufficiente.");
         } else {
-            this.saldo -= importo;
+            this.saldo -= importo; // Sottraggo l'importo al saldo
+            // Se mostraMessaggio è uguale true, manda a schermo il messaggio
             if (mostraMessaggio){
                 System.out.println("✅ Prelievo avvenuto con successo. Importo: € " + importo);
                 System.out.println("Il tuo saldo aggiornato è di: € " + saldo);
@@ -52,6 +61,7 @@ public class Conto implements Transazioni{
         }
     }
 
+    // Sovrascrivo il metodo toString
     public String toString(){
         return "Numero conto: " + numeroConto + "\nIntestatario: " + intestatario + "\nSaldo: " + saldo;
     }
