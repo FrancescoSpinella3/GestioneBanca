@@ -36,14 +36,17 @@ public class GestioneBanca {
                 case 1: // Accedi
                     System.out.println("\n--------------- ACCEDI AL TUO CONTO ----------------");
                     int numeroConto = 0;
+                    String password = "";
                     accountMenu: // Etichetta per il ciclo del menu conto
                     while (true){
                         try {
                             System.out.print("Il tuo numero conto: ");
                             numeroConto = s.nextInt();
                             s.nextLine();
+                            System.out.print("Inserisci la tua password: ");
+                            password = s.nextLine();
                             // Se il conto non viene trovato esce da ciclo e torna al menu
-                            if (!banca.accedi(numeroConto)){
+                            if (!banca.accedi(numeroConto, password)){
                                 break;
                             }
                             // Altrimenti mostra il menu del conto
@@ -187,7 +190,11 @@ public class GestioneBanca {
                     System.out.println("\n--------------- APRI CONTO ----------------");
                     System.out.print("Nome: ");
                     String intestatario = s.nextLine();
-                    banca.creaConto(intestatario); // Il conto viene creato e addiunto alla banca
+                    System.out.print("Email: ");
+                    String email = s.nextLine();
+                    System.out.print("Paswword: ");
+                    password = s.nextLine();
+                    banca.creaConto(intestatario, email, password); // Il conto viene creato e addiunto alla banca
                     break;
 
                 case 3: // Chiudi applicazione
