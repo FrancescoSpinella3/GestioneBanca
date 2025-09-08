@@ -30,12 +30,12 @@ public class Conto implements Transazioni{
         // Manda a schermo l'errore se l'importo è negativo
         if (importo < 0){
             if (mostraMessaggio)
-                System.out.println("⚠️ Errore: L'importo deve essere positivo.");
+                System.out.println("Errore: L'importo deve essere positivo.");
         } else {
             this.saldo += importo; // Aggiungo l'importo al saldo
             // Se mostraMessaggio è uguale true, manda a schermo il messaggio
             if (mostraMessaggio) {
-                System.out.println("✅ Deposito avvenuto con successo. Importo: € " + importo);
+                System.out.println("Deposito avvenuto con successo. Importo: € " + importo);
                 System.out.println("Il tuo saldo aggiornato è di: € " + saldo);
             }
         }
@@ -47,15 +47,15 @@ public class Conto implements Transazioni{
         // Manda a schermo l'errore se l'importo è negativo
         if (importo < 0){
             if (mostraMessaggio)
-                System.out.println("⚠️ Errore: L'importo deve essere positivo.");
+                System.out.println("Errore: L'importo deve essere positivo.");
         }
         else if (saldo < importo){
-            System.out.println("⚠️ Errore: impossibile prelevare € " + importo + ". Saldo insufficiente.");
+            System.out.println("Errore: impossibile prelevare € " + importo + ". Saldo insufficiente.");
         } else {
             this.saldo -= importo; // Sottraggo l'importo al saldo
             // Se mostraMessaggio è uguale true, manda a schermo il messaggio
             if (mostraMessaggio){
-                System.out.println("✅ Prelievo avvenuto con successo. Importo: € " + importo);
+                System.out.println("Prelievo avvenuto con successo. Importo: € " + importo);
                 System.out.println("Il tuo saldo aggiornato è di: € " + saldo);
             }
         }
