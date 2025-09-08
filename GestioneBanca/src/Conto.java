@@ -1,11 +1,15 @@
 public class Conto implements Transazioni{
     private String intestatario;
     private int numeroConto;
+    private String email;
+    private String password;
     private double saldo;
 
-    public Conto(String intestatario, int numeroConto){
+    public Conto(String intestatario, int numeroConto, String email, String password){
         this.intestatario = intestatario;
         this.numeroConto = numeroConto;
+        this.email = email;
+        this.password = password;
         this.saldo = 0.0;
     }
 
@@ -18,6 +22,12 @@ public class Conto implements Transazioni{
     public int getNumeroConto(){
         return numeroConto;
     }
+
+    // Metodo getter dell'email
+    public String getEmail(){return  email;}
+
+    // Metodo getter della password
+    public String getPassword(){return password;}
 
     // Metodo getter del saldo
     public double getSaldo(){
@@ -63,6 +73,6 @@ public class Conto implements Transazioni{
 
     // Sovrascrivo il metodo toString
     public String toString(){
-        return "Numero conto: " + numeroConto + "\nIntestatario: " + intestatario + "\nSaldo: " + saldo;
+        return "Numero conto: " + numeroConto + "\nIntestatario: " + intestatario + "\nEmail: " + email + "\nSaldo: " + saldo;
     }
 }
