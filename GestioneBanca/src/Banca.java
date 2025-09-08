@@ -13,19 +13,24 @@ public class Banca{
     }
 
     // Metodo crea conto
-    public void creaConto(String intestatario){
-        Conto conto = new Conto(intestatario, prossimoNumero);
+    public void creaConto(String intestatario, String email, String password){
+        Conto conto = new Conto(intestatario, prossimoNumero, email, password);
         conti.put(prossimoNumero, conto); // Aggiungo conto alla lista conti
         System.out.println("Conto creato con successo");
         prossimoNumero++; // Incremento il numero del conto ogni volta che ne viene creato uno nuovo
     }
 
     // Metodo per il login al conto
-    public boolean accedi(int numeroConto){
+    public boolean accedi(int numeroConto, String password){
         Conto conto = conti.get(numeroConto); // Ricevo il numero del conto
         // Se il conto non viene trovato manda a schermo un errore
         if (conto == null){
             System.out.println("Errore: Il conto associato al numero conto (" + numeroConto + ") non è stato trovato o non esiste");
+            return false;
+        }
+        // Controllo della password
+        if (!conto.getPassword().equals(password)){
+            System.out.println("Errore: password errata");
             return false;
         }
         contoCorrente = conto; // Assegno alla variabile contoCorrente il conto su cui si vuole operare
@@ -51,7 +56,7 @@ public class Banca{
 
     // Metodo informazioni conto
     public void informazioniConto(){
-        System.out.println("Numero conto: " + contoCorrente.getNumeroConto() +"\nIntestatario: " + contoCorrente.getIntestatario());
+        System.out.println("Numero conto: " + contoCorrente.getNumeroConto() +"\nIntestatario: " + contoCorrente.getIntestatario() + "\nEmail: " + contoCorrente.getEmail());
     }
 
     // Metodo elimina conto
