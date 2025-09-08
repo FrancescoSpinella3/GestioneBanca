@@ -25,8 +25,8 @@ public class GestioneBanca {
                 }
                 // Manda a schermo un errore se la scelta dell'utente non è valida
                 catch (InputMismatchException e){
-                    System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                    System.out.println("⚠️ Scelta utente non valida");
+                    System.out.println("Errore: " + e.getMessage());
+                    System.out.println("Scelta utente non valida");
                     System.out.println("------------------------\n");
                     s.nextLine(); // Scarto l'input sbaglito
                 }
@@ -64,8 +64,8 @@ public class GestioneBanca {
                                         break;
                                     }
                                     catch (InputMismatchException e){
-                                        System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                                        System.out.println("⚠️ Scelta utente non valida");
+                                        System.out.println("Errore: " + e.getMessage());
+                                        System.out.println("Scelta utente non valida");
                                         System.out.println("------------------------\n");
                                         s.nextLine();
                                     }
@@ -84,8 +84,8 @@ public class GestioneBanca {
                                                 break;
                                             }
                                             catch (InputMismatchException e){
-                                                System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                                                System.out.println("⚠️ Input utente non valido");
+                                                System.out.println("Errore: " + e.getMessage());
+                                                System.out.println("Input utente non valido");
                                                 System.out.println("------------------------\n");
                                                 s.nextLine();
                                             }
@@ -104,8 +104,8 @@ public class GestioneBanca {
                                                 break;
                                             }
                                             catch (InputMismatchException e){
-                                                System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                                                System.out.println("⚠️ Input utente non valido");
+                                                System.out.println("Errore: " + e.getMessage());
+                                                System.out.println("Input utente non valido");
                                                 System.out.println("------------------------\n");
                                                 s.nextLine();
                                             }
@@ -128,8 +128,8 @@ public class GestioneBanca {
                                                 break;
                                             }
                                             catch (InputMismatchException e){
-                                                System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                                                System.out.println("⚠️ Input utente non valido");
+                                                System.out.println("Errore: " + e.getMessage());
+                                                System.out.println("Input utente non valido");
                                                 System.out.println("------------------------\n");
                                                 s.nextLine();
                                             }
@@ -157,8 +157,8 @@ public class GestioneBanca {
                                                 break;
                                             }
                                             catch (InputMismatchException e){
-                                                System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                                                System.out.println("⚠️ Input utente non valido");
+                                                System.out.println("Errore: " + e.getMessage());
+                                                System.out.println("Input utente non valido");
                                                 System.out.println("------------------------\n");
                                                 s.nextLine();
                                             }
@@ -170,13 +170,13 @@ public class GestioneBanca {
                                         break accountMenu;
                                     // Messaggio di default se si inserisce un input non valido
                                     default:
-                                        System.out.println("⚠️ Comando utente non valido");
+                                        System.out.println("Comando utente non valido");
                                 }
                             }
                         }
                         catch (InputMismatchException e){
-                            System.out.println("\uD83D\uDD34 Errore: " + e.getMessage());
-                            System.out.println("⚠️ Errore: Input utente non valido");
+                            System.out.println("Errore: " + e.getMessage());
+                            System.out.println("Errore: Input utente non valido");
                             System.out.println("------------------------\n");
                             s.nextLine(); // Scarto l'input sbaglito
                         }
@@ -195,7 +195,7 @@ public class GestioneBanca {
                     return; // Esce dal main e chiude l'applicazione
 
                 default:
-                    System.out.println("⚠️ Comando utente non valido");
+                    System.out.println("Comando utente non valido");
             }
         }
     }
